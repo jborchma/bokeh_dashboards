@@ -51,3 +51,5 @@ It is just meant to be a simple example of can be done. Since the code in `main.
 start up of the app, one could also automatically generate the lists of segments and metrics
 based on some rules, filter data before loading it into the bokeh datasource or adding a selection
 for x-axis columns.
+
+![Alt text](example.png?raw=true "Title")
