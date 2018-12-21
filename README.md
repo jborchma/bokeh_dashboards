@@ -14,7 +14,11 @@ The main content of this repo is the abstract base class called `InteractiveTab`
 as well as a specific implementation `LineTab` in `linetab.py`. The former establishes the
 basic framework that is needed to create an interactive tab with bokeh and the latter is an
 example of how one can plot a dataset by some x-axis value and segment/filter by all available
-segments. 
+segments. It addresses a use case that I have faced many times at work as well as in personal
+projects when one is faced with a new dataset and wants to go through many different plots and
+segmentations in order to gain intuition about the data. This is just one example how one can use
+interactive dashboards to automatically generate a large number of possible plots without too
+much effort.
 
 ## Bokeh ColumnDataSource class
 

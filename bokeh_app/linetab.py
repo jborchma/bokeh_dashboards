@@ -6,7 +6,7 @@ from bokeh.models import (ColumnDataSource, HoverTool, Panel)
 from bokeh.models.widgets import (CheckboxGroup, Select)
 
 from bokeh.layouts import row, WidgetBox
-from bokeh.palettes import Category20_16 # pylint: disable=E0611
+from bokeh.palettes import Category20_20 # pylint: disable=E0611
 
 from core import InteractiveTab
 
@@ -129,7 +129,7 @@ class LineTab(InteractiveTab): # pylint: disable=R0902
                 [metric, self.x_axis]].groupby(self.x_axis).mean().reset_index()
             segment_average = segment_average.rename(columns={metric: "metric"})
             segment_average["name"] = segment_value
-            segment_average["color"] = Category20_16[i]
+            segment_average["color"] = Category20_20[i]
             dataframes.append(segment_average)
 
         datasource = pd.concat(dataframes)
@@ -153,11 +153,11 @@ class LineTab(InteractiveTab): # pylint: disable=R0902
         bokeh.plotting.figure
             The figure object containing the plot
         """
-        bokeh_plot = figure(plot_width=800, plot_height=400, x_axis=self.x_axis,
+        bokeh_plot = figure(plot_width=800, plot_height=400, x_axis_label=self.x_axis,
                             y_axis_label="Metric", title="Segment metrics")
 
         bokeh_plot.circle(self.x_axis, "metric", source=source, alpha=0.4,
-                          color="color", size=5, legend="name", hover_fill="color")
+                          color="color", size=5, legend="name")
 
         # hover tool
         hover = HoverTool(tooltips=[("Segment", "@name"),

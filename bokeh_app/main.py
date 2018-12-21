@@ -6,14 +6,15 @@ import pandas as pd
 from bokeh.io import curdoc
 from bokeh.models.widgets import Tabs
 
-from XXX import LineTab
+from linetab import LineTab
 
 
-data = pd.read_csv(join(dirname(__file__), "filename..csv"))
+data = pd.read_csv(join(dirname(__file__), "sales_data_sample.csv"), encoding="ISO-8859-1")
+data = data.fillna("NULL")
 
-x_axis = ""
-segments = []
-metrics = []
+x_axis = "MONTH_ID"
+segments = ["DEALSIZE", "STATE", "COUNTRY"]
+metrics = ["SALES", "PRICEEACH", "QUANTITYORDERED"]
 
 # create tab
 # here, intialize all tabs of the app
