@@ -39,10 +39,15 @@ Bokeh server
 
 ## How to run the app
 
-I have implemented an example bokeh app that can be run by executing
+First, one needs to download the [data sample](https://community.tableau.com/docs/DOC-1236) and
+rename it to `superstore.xls`. Then the bokeh app that can be run by executing
 
 ```bash
 bokeh serve --show bokeh_app/
 ```
 
 This executes the code that is in `main.py` and should start up the dashboard in a new browser tab.
+It is just meant to be a simple example of can be done. Since the code in `main.py` is run at
+start up of the app, one could also automatically generate the lists of segments and metrics
+based on some rules, filter data before loading it into the bokeh datasource or adding a selection
+for x-axis columns.

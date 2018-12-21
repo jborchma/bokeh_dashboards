@@ -9,12 +9,14 @@ from bokeh.models.widgets import Tabs
 from linetab import LineTab
 
 
-data = pd.read_csv(join(dirname(__file__), "sales_data_sample.csv"), encoding="ISO-8859-1")
+data = pd.read_excel(join(dirname(__file__), "superstore.xls"))
 data = data.fillna("NULL")
+data['year'] = data['Order Date'].dt.year.astype(str)
+data['month'] = pd.DatetimeIndex(data['Order Date']).month
 
-x_axis = "MONTH_ID"
-segments = ["DEALSIZE", "STATE", "COUNTRY"]
-metrics = ["SALES", "PRICEEACH", "QUANTITYORDERED"]
+x_axis = 'month'
+segments = ["year", "Category", "Sub-Category", "Region"]
+metrics = ["Sales", "Quantity", "Profit"]
 
 # create tab
 # here, intialize all tabs of the app
